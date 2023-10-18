@@ -18,3 +18,6 @@ class ChatRolesEnum(StrEnum):
 # add chat version
 class ModelsEnum(StrEnum):
     GPT4 = "gpt-4-0613"
+
+
+NO_DOCUMENTS_FOUND: str = "No documents found in context. Please try again with a different query."
