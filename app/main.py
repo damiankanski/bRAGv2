@@ -6,4 +6,5 @@ from app.core.logs import logger
 
 app = FastAPI(version=version)
 app.include_router(core_router)
+
 logger.info("App is ready!")
