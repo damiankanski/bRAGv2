@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="519d64e1-f1b7-47cd-971c-b3304592110a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-    </list>
+    <list default="true" id="519d64e1-f1b7-47cd-971c-b3304592110a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +29,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="feat/bRAGV2-006-requirements" />
+                    <option name="lastUsedInstant" value="1697626423" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="feat/bRAGv2-005-endopits" />
                     <option name="lastUsedInstant" value="1697625748" />
                   </RecentBranch>
@@ -45,10 +47,6 @@
                   <RecentBranch>
                     <option name="branchName" value="feat/bRAGv2-006-modify" />
                     <option name="lastUsedInstant" value="1697625214" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="feat/bRAGv2-004-create-logger" />
-                    <option name="lastUsedInstant" value="1697566898" />
                   </RecentBranch>
                 </list>
               </option>
@@ -71,7 +69,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/bRAGv2-005-endopits",
+    "git-widget-placeholder": "feat/bRAGV2-006-requirements",
     "last_opened_file_path": "C:/Users/Damian/PycharmProjects/bRAGv2"
   }
 }]]></component>
