@@ -1,26 +1,67 @@
-[tool.poetry]
-name = "bragv2"
-version = "0.1.0"
-description = ""
-authors = ["Damian Kanski <damiankanski4@gmail.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = ">=3.11,<3.13"
-fastapi = "^0.103.2"
-openai = "^0.28.1"
-pydantic-settings = "^2.0.3"
-uvicorn = "^0.23.2"
-gunicorn = "^21.2.0"
-sentry-sdk = "^1.32.0"
-pugsql = "^0.2.4"
-psycopg2-binary = "^2.9.9"
-ruff = "^0.1.0"
-clack = "^1.2.0"
-black = "^23.10.0"
-qdrant-client = {extras = ["fastembed"], version = "^1.6.3"}
-
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "brag"
+requires-python = ">=3.11,<3.13"
+version = "0.0.1"
+dependencies = ["fastapi", "openai", "pydantic-settings", "uvicorn", "gunicorn", "qdrant-client[fastembed]", "sentry-sdk", "pugsql", "psycopg2-binary"]
+
+[project.optional-dependencies]
+dev = ["black", "ruff", "pytest"]
+
+[tool.black]
+line-length = 120
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.ruff]
+line-length = 120
+select = ["E", "F", "I"]
+fixable = ["A", "B", "C", "D", "E", "F", "I"]
+ignore = ["E712"]
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+    "*migrations*",
+]
+
+[tool.ruff.isort]
+section-order = ["fastapi", "future", "standard-library", "third-party",  "first-party", "local-folder"]
+
+[tool.ruff.isort.sections]
+fastapi = ["fastapi"]
