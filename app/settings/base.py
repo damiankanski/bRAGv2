@@ -1,7 +1,8 @@
 from pydantic import Field
 from pydantic_settings import BaseSettings
 
-from app.core.constans import Environments
+from app.core.constants import Environments
+
 
 class Settings(BaseSettings):
     APP_NAME: str = "bRAG"
