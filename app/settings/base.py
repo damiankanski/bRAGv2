@@ -15,4 +15,4 @@ class Settings(BaseSettings):
         return self.ENVIRONMENT == Environments.LOCAL.value
 
     class Config:
-        env_file = ".env"gir
+        env_file = ".env"
