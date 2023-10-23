@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 
 from constants import ChatRolesEnum, ModelsEnum
+from app.chat.exceptions import OpenAIFailedProcessingException
 from app.core.models import TimestampAbstractModel
 
 class BaseMessage(BaseModel):
@@ -11,3 +12,31 @@ class BaseMessage(BaseModel):
 class Message(TimestampAbstractModel, BaseMessage):
     role: ChatRolesEnum
 
+class Chunk(BaseModel):
+    id: str
+    created: int = Field(default=0)
+    model: ModelsEnum = Field(default="gpt-4-0613")
+    content: str
+    finish_reason: str | None = None
+
+    @classmethod
+    def from_chunk(cls, chunk):
+        delta_content: str = cls.get_chunk_delta_content(chunk=chunk)
+        return cls(
+            id=chunk["id"],
+            created=chunk["created"],
+            model=chunk["model"],
+            content=delta_content,
+            finish_reason=chunk["choices"][0].get("finish_reason", None),
+        )
+
+    @staticmethod
+    def get_chunk_delta_content(chunk: dict | str) -> str:
+        try:
+            match chunk:
+                case str(chunk):
+                    return chunk
+                case dict(chunk):
+                    return chunk["choices"][0]["delta"].get("content", "")
+        except Exception:
+            raise OpenAIFailedProcessingException
